@@ -1,0 +1,32 @@
+[
+{
+    "name": "Иванов",
+    "surname": "Иван",
+    "birth": "12-12-1965",
+    "year_of_admission": 2019,
+    "specialization": "математика",
+    "level": "бакалавр",
+    "dormitory": false,
+    "session": [4,5,4,4,5]
+},
+{
+    "name": "Петров",
+    "surname": "Иван",
+    "birth": "12-12-1965",
+    "year_of_admission": 2019,
+    "specialization": "физика",
+    "level": "бакалавр",
+    "dormitory": false,
+    "session": [3,5,4,3,5]
+},
+{
+    "name": "Сидоров",
+    "surname": "Иван",
+    "birth": "12-12-1965",
+    "year_of_admission": 2019,
+    "specialization": "информатика",
+    "level": "бакалавр",
+    "dormitory": false,
+    "session": [4,5,5,5,5]
+}
+]
