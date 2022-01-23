@@ -31,12 +31,12 @@
 
         function populateHeader(jsonObj) {
             var myH1 = document.createElement('h1');
-            myH1.textContent = jsonObj['name'];
+            myH1.textContent = jsonObj[0]['name'];
             header.appendChild(myH1);
 
-            var myPara = document.createElement('p');
-            myPara.textContent = 'specialization: ' + jsonObj['level'] + ' // Общежитие: ' + jsonObj['dormitory'];
-            header.appendChild(myPara);
+            // var myPara = document.createElement('p');
+            // myPara.textContent = 'specialization: ' + jsonObj['level'] + ' // Общежитие: ' + jsonObj['dormitory'];
+            // header.appendChild(myPara);
         }
     </script>
 
