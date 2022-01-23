@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Students</title>
 </head>
+
 <body>
     <header>
     </header>
-    
+
     <section>
     </section>
+    <script>
+        var header = document.querySelector('header');
+        var section = document.querySelector('section');
+        var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+        var requestURL = 'https://an171.github.io/json/students.json';
+        var request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function () {
+            var students = request.response;
+            populateHeader(students);
+            showHeroes(students);
+        }
+
+        function populateHeader(jsonObj) {
+            var myH1 = document.createElement('h1');
+            myH1.textContent = jsonObj['name'];
+            header.appendChild(myH1);
+
+            var myPara = document.createElement('p');
+            myPara.textContent = 'specialization: ' + jsonObj['level'] + ' // Общежитие: ' + jsonObj['dormitory'];
+            header.appendChild(myPara);
+        }
+    </script>
+
 </body>
+
 </html>
