@@ -15,8 +15,8 @@
     "birth": "12-12-1965",
     "year_of_admission": 2019,
     "specialization": "физика",
-    "level": "бакалавр",
-    "dormitory": false,
+    "level": "магистр",
+    "dormitory": true,
     "session": [3,5,4,3,5]
 },
 {
