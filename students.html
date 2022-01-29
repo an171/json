@@ -6,14 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Students</title>
+    <style>
+        .custom-counter {
+            /* margin-left: 0;
+            padding-right: 0; */
+            list-style-type: none;
+        }
+
+        li {
+            counter-increment: step-counter;
+        }
+
+        li::before {
+            content: counter(step-counter);
+            margin-right: 5px;
+            font-size: 80%;
+            background-color: rgb(200, 200, 200);
+            color: white;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 
-<body>
+<body onmousemove="start(event)">
     <header>
     </header>
 
     <section>
     </section>
+
+
     <script>
         var header = document.querySelector('header');
         var section = document.querySelector('section');
@@ -30,13 +54,23 @@
         }
 
         function populateHeader(jsonObj) {
-            var myH1 = document.createElement('h1');
-            myH1.textContent = jsonObj[0]['name'];
-            header.appendChild(myH1);
 
-            // var myPara = document.createElement('p');
-            // myPara.textContent = 'specialization: ' + jsonObj['level'] + ' // Общежитие: ' + jsonObj['dormitory'];
-            // header.appendChild(myPara);
+
+            for (let i = 0; i < jsonObj.length; i++) {
+                myH1 = document.createElement('h1');
+                myH1.textContent = jsonObj[i]['name'];
+                header.appendChild(myH1);
+
+                var myPara = document.createElement('p');
+                myPara.textContent = 'specialization: ' + jsonObj[i]['level'] + ' // Общежитие: ' + jsonObj[i][
+                    'dormitory'
+                ];
+                header.appendChild(myPara);
+            }
+        }
+
+        function start(e) {
+            console.log(e.clientX, e.clientY)
         }
     </script>
 
