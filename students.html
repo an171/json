@@ -27,20 +27,34 @@
             padding: 3px 8px;
             border-radius: 3px;
         }
+
+
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        div {
+            width: fit-content;
+            border: 1px solid black;
+            padding: 20px;
+            margin-top: 10px;
+
+        }
+
+        div p {
+            margin: 0;
+
+        }
     </style>
 </head>
 
 <body onmousemove="start(event)">
     <header>
     </header>
-
-    <section>
-    </section>
-
-
     <script>
-        var header = document.querySelector('header');
-        var section = document.querySelector('section');
         // var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
         var requestURL = 'https://an171.github.io/json/students.json';
         var request = new XMLHttpRequest();
@@ -49,23 +63,42 @@
         request.send();
         request.onload = function () {
             var students = request.response;
-            populateHeader(students);
-            // showHeroes(students);
+            writeStudents(students);
         }
 
-        function populateHeader(jsonObj) {
-
-
+        function writeStudents(jsonObj) {
+            var header = document.querySelector('header');
             for (let i = 0; i < jsonObj.length; i++) {
-                myH1 = document.createElement('h1');
-                myH1.textContent = jsonObj[i]['name'];
-                header.appendChild(myH1);
+                card = document.createElement('div');
+                H1 = document.createElement('h1');
+                H1.textContent = jsonObj[i]['name'] + " " + jsonObj[i]['surname'];
+                header.appendChild(card);
+                card.appendChild(H1);
 
-                var myPara = document.createElement('p');
-                myPara.textContent = 'specialization: ' + jsonObj[i]['level'] + ' // Общежитие: ' + jsonObj[i][
-                    'dormitory'
-                ];
-                header.appendChild(myPara);
+                p1 = document.createElement('p');
+                p1.textContent = 'специальность: ' + jsonObj[i]['specialization']
+                card.appendChild(p1);
+
+                p5 = document.createElement('p');
+                p5.textContent = 'уровень: ' + jsonObj[i]['level']
+                card.appendChild(p5);
+
+                p2 = document.createElement('p');
+                p2.textContent = 'общежитие: ' + jsonObj[i]['dormitory']
+                card.appendChild(p2);
+
+                p3 = document.createElement('p');
+                p3.textContent = 'год поступления: ' + jsonObj[i]['year_of_admission']
+                card.appendChild(p3);
+
+                p4 = document.createElement('p');
+                p4.textContent = 'год рождения: ' + jsonObj[i]['birth']
+                card.appendChild(p4);
+
+                p6 = document.createElement('p');
+                p6.textContent = 'оценки: ' + jsonObj[i]['session']
+                card.appendChild(p6);
+
             }
         }
 
